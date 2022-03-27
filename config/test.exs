@@ -7,8 +7,8 @@ import Config
 # Run `mix help test` for more information.
 config :coeus, Coeus.Repo,
   username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
+  password: System.get_env("POSTGRES_PASSWORD", "postgres"),
+  hostname: System.get_env("POSTGRES_HOST", "localhost"),
   database: "coeus_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10

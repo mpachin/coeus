@@ -3,8 +3,8 @@ import Config
 # Configure your database
 config :coeus, Coeus.Repo,
   username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
+  password: System.get_env("POSTGRES_PASSWORD", "postgres"),
+  hostname: System.get_env("POSTGRES_HOST", "localhost"),
   database: "coeus_dev",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
@@ -13,20 +13,16 @@ config :coeus, Coeus.Repo,
 # debugging and code reloading.
 #
 # The watchers configuration can be used to run external
-# watchers to your application. For example, we use it
-# with esbuild to bundle .js and .css sources.
+# watchers to your application.
 config :coeus, CoeusWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
-  http: [ip: {127, 0, 0, 1}, port: 4000],
+  http: [ip: {0, 0, 0, 0}, port: 4000],
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
   secret_key_base: "TLUqsBjde1NM/xYc61bor5wdFycOKZm5E/nvLJ0CsQ7q+EHwxiS8RbHmo9fJ+Y57",
-  watchers: [
-    # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
-  ]
+  watchers: []
 
 # ## SSL Support
 #

@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:14.2
+    environment:
+      POSTGRES_PASSWORD: temp
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: .
+      args:
+        - PROJECT_DIR=/app
+    volumes:
+      - backend-code:/app
+    ports:
+      - "4000:4000"
+    depends_on:
+      - postgres
+    environment:
+      - POSTGRES_PASSWORD=temp
+      - POSTGRES_HOST=postgres
+
+volumes:
+  backend-code:
+  postgres-data:
