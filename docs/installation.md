@@ -16,4 +16,4 @@ After the base image is created you can start app with this command:
 $ docker-compose up
 ```
 
-...or run a project inside the [dev-container](https://code.visualstudio.com/docs/remote/containers) (`.devcontainer` directory is already configured).
+...or run a project inside the [dev-container](https://code.visualstudio.com/docs/remote/containers) (`.devcontainer` directory is already configured). Before running devcontainer, copy `.ssh` directory with public and private keys into `.devcontainer` directory.

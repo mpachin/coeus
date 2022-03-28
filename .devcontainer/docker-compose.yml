@@ -10,10 +10,10 @@ services:
 
   backend:
     build:
-      context: ../
-      dockerfile: ./docker/coeus_backend_base.Dockerfile
+      context: .
       args:
         - PROJECT_DIR=/app
+        - GIT_ORIGIN=https://github.com/mpachin/coeus.git
     volumes:
       - workspace:/app
     ports:
