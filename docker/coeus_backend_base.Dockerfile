@@ -14,5 +14,3 @@ RUN chmod +x $DIR/run.sh
 RUN mix local.hex --force
 RUN mix local.rebar --force
 RUN mix do deps.get, deps.compile
-
-ENTRYPOINT /bin/sh $DIR/run.sh

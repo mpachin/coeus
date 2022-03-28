@@ -12,7 +12,7 @@ else
   echo "\nNo Dialyxer config: Skipping setup..."
 fi
 
-#Analysis style code
+# Analysis style code
 # Prepare Credo if the project has Credo start code analyze
 if mix help credo >/dev/null 2>&1
 then

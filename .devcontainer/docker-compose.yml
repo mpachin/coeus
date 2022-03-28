@@ -10,12 +10,12 @@ services:
 
   backend:
     build:
-      context: .
-      dockerfile: ./docker/coeus_backend_run.Dockerfile
+      context: ../
+      dockerfile: ./docker/coeus_backend_base.Dockerfile
       args:
         - PROJECT_DIR=/app
     volumes:
-      - backend-code:/app
+      - workspace:/app
     ports:
       - "4000:4000"
     depends_on:
@@ -23,7 +23,8 @@ services:
     environment:
       - POSTGRES_PASSWORD=temp
       - POSTGRES_HOST=postgres
+    command: /bin/sh -c "while sleep 1000; do :; done"
 
 volumes:
-  backend-code:
   postgres-data:
+  workspace:
