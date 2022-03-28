@@ -6,5 +6,7 @@
 	"service": "backend",
 	"workspaceFolder": "/app",
 	"settings": {},
-	"extensions": []
+	"extensions": [
+		"jakebecker.elixir-ls"
+	]
 }
